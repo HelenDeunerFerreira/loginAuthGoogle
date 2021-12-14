@@ -15,13 +15,13 @@ type Params = {
 };
 
 type Profile = {
-  name: string,
-  email: string,
-  given_name: string,
-  family_name: string,
+  name: string;
+  email: string;
+  given_name: string;
+  family_name: string;
   locale: string;
   picture: string;
-}
+};
 
 export function Profile() {
   const [profile, setProfile] = useState({} as Profile);
@@ -45,22 +45,17 @@ export function Profile() {
 
     //`https://people.googleapis.com/v1/people/me?personFields=phoneNumbers&access_token=${token}`
 
-    // const responseContact = await fetch(
-    //   `https://www.googleapis.com/admin/directory/v1/users/userKey/phones`
-    // );
+    const responseContact = await fetch(
+      `https://www.googleapis.com/admin/directory/v1/users/userKey/phones`
+    );
 
-    // const contact = await responseContact.json();
+    const contact = await responseContact.json();
 
-    // console.log(responseContact);
+    console.log("user info", userInfo);
+    console.log('contact', contact);
+    console.log('responseContact', responseContact);
 
-    //https://www.ti-enxame.com/pt/javascript/como-gravar-dados-em-um-arquivo-json-usando-javascript/1055739192/
-    //https://www.visualdicas.com.br/programacao/js/83-como-ler-e-obter-dados-de-um-arquivo-json-com-javascript
-    //https://qastack.com.br/programming/36856232/write-add-data-in-json-file-using-node-js
-    //https://groups.google.com/g/jquery-br/c/urmUjT9fox0
-
-    // console.log('user info - ', JSON.stringify(contact))
-
-    console.log('user info - ', userInfo);
+    //https://stackoverflow.com/questions/20029492/get-all-users-contact-list-including-phone-number-from-google-login-in-javasc
   }
 
   async function handleLogout() {
@@ -79,9 +74,7 @@ export function Profile() {
 
           <View style={styles.email}>
             <Feather name="mail" color={theme.colors.secondary} size={18} />
-            <Text style={styles.emailText}>
-              {profile.email}
-            </Text>
+            <Text style={styles.emailText}>{profile.email}</Text>
           </View>
         </View>
 
