@@ -43,19 +43,6 @@ export function Profile() {
     const userInfo = await response.json();
     setProfile(userInfo);
 
-    //`https://people.googleapis.com/v1/people/me?personFields=phoneNumbers&access_token=${token}`
-
-    const responseContact = await fetch(
-      `https://www.googleapis.com/admin/directory/v1/users/userKey/phones`
-    );
-
-    const contact = await responseContact.json();
-
-    console.log("user info", userInfo);
-    console.log('contact', contact);
-    console.log('responseContact', responseContact);
-
-    //https://stackoverflow.com/questions/20029492/get-all-users-contact-list-including-phone-number-from-google-login-in-javasc
   }
 
   async function handleLogout() {

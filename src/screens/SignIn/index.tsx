@@ -48,9 +48,6 @@ export function SignIn() {
   useEffect(() => {
     if (response?.type === "success") {
       const { authentication } = response;
-
-      // console.log(authentication);
-
       navigation.navigate("Profile", { token: authentication?.accessToken });
     }
   }, [response]);
